@@ -1,0 +1,23 @@
+.mainContainer {
+  margin: 30px;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  transition: 300ms;
+  padding: 6px;
+  display: inline-block;
+}
+.mainContainer:hover {
+  transform: scale(1.02, 1.02);
+}
+.mainContainer h2 {
+  margin: 0;
+}
+.mainContainer img {
+  border-radius: 4px;
+  width: 270px;
+  height: 155px;
+}
+.price {
+  padding-left: 40%;
+  transform: translate(-20%);
+}

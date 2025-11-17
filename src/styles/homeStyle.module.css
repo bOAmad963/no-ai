@@ -1,0 +1,29 @@
+.searchSection {
+  width: 90%;
+  margin-left: 20px;
+}
+.searchBar {
+  min-width: 500px;
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  transition: 250px;
+  border-radius: 6px;
+  border: solid 1px gray;
+}
+.searchBar::placeholder {
+  font-size: 14px;
+}
+.top {
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  border-bottom-right-radius: 35%;
+  border-bottom-left-radius: 35%;
+  border-bottom: 1px solid #919191;
+  color: black;
+}
+.loginbutton {
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+}
