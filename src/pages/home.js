@@ -32,6 +32,7 @@ function Home() {
         `http://localhost/php/no-ai/index.php?search=${search}`
       );
       const data = res.data;
+      console.log(data);
       setGames(data);
       setLoding(false);
     } catch (e) {
