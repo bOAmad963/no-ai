@@ -68,16 +68,7 @@ function Home() {
           ) : error ? (
             <h2 style={{ margin: 30 }}>{error}</h2>
           ) : (
-            <div>
-              {games.map((game, i) => (
-                <GameCard
-                  handelSelect={() => selectGame(game.img, game.name)}
-                  key={i}
-                  gameName={game.name}
-                  gameImg={game.img}
-                />
-              ))}
-            </div>
+            <div></div>
           )}
         </div>
       )}
