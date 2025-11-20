@@ -44,8 +44,6 @@ function Home() {
     setTimeout(() => navigate(adrress), 200);
   }
 
-  useEffect(() => fetchGames, []);
-
   return (
     <>
       {localStorage.getItem("loged") && (
