@@ -21,15 +21,34 @@ function Home() {
       },
     });
   }
-  function handelSearchChange(e) {}
-
+  function handelSearchChange(e) {
+    setSearch(e.target.value);
+    fetchGames(e.target.value);
+  }
+  async function fetchGames(search = "") {
+    try {
+      setLoding(true);
+      const res = await axios.get(
+        `https://no-ai.infinityfree.me/index.php?search=${search}`
+      );
+      const data = res.data;
+      setGames(data);
+      console.log(data);
+      setLoding(false);
+    } catch (e) {
+      setError(e.message);
+      setLoding(false);
+    }
+  }
   function nav(adrress) {
     setTimeout(() => navigate(adrress), 200);
   }
 
+  useEffect(() => fetchGames, []);
+
   return (
     <>
-      {localStorage?.getItem("loged") && (
+      {localStorage.getItem("loged") && (
         <div>
           <Header />
           <div className={style.searchSection}>
@@ -42,9 +61,27 @@ function Home() {
               placeholder="Search..."
             />
           </div>
+          {loding ? (
+            <div style={{ margin: 30 }}>
+              <CircularProgress color="white" />
+            </div>
+          ) : error ? (
+            <h2 style={{ margin: 30 }}>{error}</h2>
+          ) : (
+            <div>
+              {games.map((game, i) => (
+                <GameCard
+                  handelSelect={() => selectGame(game.img, game.name)}
+                  key={i}
+                  gameName={game.name}
+                  gameImg={game.img}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
-      {!localStorage?.getItem("loged") && (
+      {!localStorage.getItem("loged") && (
         <div>
           <Header />
           <div className={style.top}>

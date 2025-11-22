@@ -14,7 +14,7 @@ function Register() {
     let password = document.getElementById("registerPassword").value;
     let confirmedPassword = document.getElementById("confirmedPassword").value;
     if (password === confirmedPassword) {
-      let res = await axios.post("http://localhost/php/no-ai/register.php", {
+      let res = await axios.post("https://no-ai.infinityfree.me/register.php", {
         name: name,
         email: email,
         password: password,

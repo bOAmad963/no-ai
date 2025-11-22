@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     const password = document.getElementById("loginPassword").value;
     const email = document.getElementById("loginEmail").value;
-    let res = await axios.post("http://localhost/php/no-ai/login.php", {
+    let res = await axios.post("https://no-ai.infinityfree.me/login.php", {
       password: password,
       email: email,
     });
