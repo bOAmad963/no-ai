@@ -21,16 +21,11 @@ function Home() {
       },
     });
   }
-  function handelSearchChange(e) {
-    setSearch(e.target.value);
-    fetchGames(e.target.value);
-  }
+  function handelSearchChange(e) {}
 
   function nav(adrress) {
     setTimeout(() => navigate(adrress), 200);
   }
-
-  useEffect(() => fetchGames, []);
 
   return (
     <>
