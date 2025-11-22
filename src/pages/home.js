@@ -25,28 +25,16 @@ function Home() {
     setSearch(e.target.value);
     fetchGames(e.target.value);
   }
-  async function fetchGames(search = "") {
-    try {
-      setLoding(true);
-      const res = await axios.get(
-        `http://localhost/php/no-ai/index.php?search=${search}`
-      );
-      const data = res.data;
-      console.log(data);
-      setGames(data);
-      setLoding(false);
-    } catch (e) {
-      setError(e.message);
-      setLoding(false);
-    }
-  }
+
   function nav(adrress) {
     setTimeout(() => navigate(adrress), 200);
   }
 
+  useEffect(() => fetchGames, []);
+
   return (
     <>
-      {localStorage.getItem("loged") && (
+      {localStorage?.getItem("loged") && (
         <div>
           <Header />
           <div className={style.searchSection}>
@@ -59,18 +47,9 @@ function Home() {
               placeholder="Search..."
             />
           </div>
-          {loding ? (
-            <div style={{ margin: 30 }}>
-              <CircularProgress color="white" />
-            </div>
-          ) : error ? (
-            <h2 style={{ margin: 30 }}>{error}</h2>
-          ) : (
-            <div></div>
-          )}
         </div>
       )}
-      {!localStorage.getItem("loged") && (
+      {!localStorage?.getItem("loged") && (
         <div>
           <Header />
           <div className={style.top}>
